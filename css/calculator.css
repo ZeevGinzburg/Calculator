@@ -39,8 +39,9 @@ body {
     color: black;
     border: none;
     font-size: 40px;
-    height: 100px;
+    height: 99px;
     flex-basis: 24.5%;
+    border-radius: 5px;
 }
 
 .calc-button.double {

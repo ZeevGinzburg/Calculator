@@ -3,8 +3,10 @@ let buffer = "0";
 let previousOperator = null;
 
 const screen = document.querySelector('.screen');
+const equalsSymbol = document.getElementById("equals");
 
 function buttonClick(value) {
+    equalsSymbol.classList.remove("spin");
     if (isNaN(value)) {
         handleSymbol(value);
     }
@@ -15,7 +17,8 @@ function buttonClick(value) {
 }
 
 function handleSymbol(symbol) {
-    console.log(buffer);
+
+    // console.log(buffer);
     switch (symbol) {
         case 'C':
             buffer = '0';
@@ -74,17 +77,24 @@ function handleEquals(symbol) {
     previousOperator = null;
     buffer = runningTotal;
     runningTotal = 0;
+    equalsSymbol.classList.add("spin");
+    
 }
 function flushOperation(intBuffer) {
     switch (previousOperator) {
         case '÷':
+            console.log(previousOperator)
             runningTotal /= intBuffer;
+            break;
         case '×':
             runningTotal *= intBuffer;
+            break;
         case '−':
             runningTotal -= intBuffer;
+            break;
         case '+':
             runningTotal += intBuffer;
+            break;
     }
 }
 
